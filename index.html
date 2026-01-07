@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitale Uitnodigingen - Jouw Speciale Momenten</title>
+    <style>
+        /* Algemene stijlen */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #8b0000;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* Animaties */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+        .animate-fade {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+        .animate-slide-left {
+            animation: slideInLeft 1s ease-out forwards;
+            opacity: 0;
+        }
+        .animate-slide-right {
+            animation: slideInRight 1s ease-out forwards;
+            opacity: 0;
+        }
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+        /* Hero sectie */
+        #hero {
+            background-color: #fff0f5;
+            padding: 100px 20px;
+            position: relative;
+        }
+        #hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation-delay: 0.5s;
+        }
+        #hero p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            animation-delay: 1s;
+        }
+        .cta-button {
+            background-color: #8b0000;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #600000;
+            animation: bounce 0.5s;
+        }
+        /* Features sectie */
+        #features {
+            background-color: #ffffff;
+        }
+        .feature-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .feature-item {
+            width: 30%;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .feature-item:hover {
+            transform: scale(1.05);
+        }
+        /* Pricing sectie */
+        #pricing {
+            background-color: #fff0f5;
+        }
+        .pricing-table {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .price-plan {
+            width: 40%;
+            margin: 20px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s;
+        }
+        .price-plan:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .price {
+            font-size: 2em;
+            color: #8b0000;
+        }
+        /* Testimonials sectie */
+        #testimonials {
+            background-color: #ffffff;
+        }
+        .testimonial {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+        }
+        /* FAQ sectie */
+        #faq {
+            background-color: #fff0f5;
+        }
+        .faq-item {
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .faq-question {
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .faq-answer {
+            display: none;
+            margin-bottom: 20px;
+        }
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Sectie -->
+    <section id="hero">
+        <div class="container">
+            <h1 class="animate-fade">Digitale Uitnodigingen voor Jouw Speciale Momenten</h1>
+            <p class="animate-fade">Maak onvergetelijke digitale uitnodigingen voor bruiloften, verjaardagen en meer. Met RSVP, personalisatie en animaties!</p>
+            <a href="#pricing" class="cta-button animate-fade animate-bounce">Maak de Mijne</a>
+            <a href="#demo" class="cta-button animate-fade" style="margin-left: 20px;">Bekijk Demo</a>
+        </div>
+    </section>
+
+    <!-- Features Sectie -->
+    <section id="features">
+        <div class="container">
+            <h2 class="animate-slide-left">Wat Zit Er In Je Digitale Uitnodiging?</h2>
+            <div class="feature-list">
+                <div class="feature-item animate-slide-left">
+                    <h3>Persoonlijk Ontwerp</h3>
+                    <p>Kies uit prachtige thema's of ontwerp je eigen.</p>
+                </div>
+                <div class="feature-item animate-fade">
+                    <h3>RSVP met Berichten</h3>
+                    <p>Gasten kunnen gemakkelijk bevestigen en berichten sturen.</p>
+                </div>
+                <div class="feature-item animate-slide-right">
+                    <h3>Multi-Taal Ondersteuning</h3>
+                    <p>Beschikbaar in Nederlands, Engels en meer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Sectie -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="animate-slide-right">Kies Je Plan</h2>
+            <div class="pricing-table">
+                <div class="price-plan animate-slide-left">
+                    <h3>Basis Plan</h3>
+                    <p class="price">€99</p>
+                    <ul>
+                        <li>Standaard ontwerp</li>
+                        <li>RSVP functionaliteit</li>
+                        <li>Toegang voor altijd</li>
+                    </ul>
+                    <a href="#" class="cta-button">Kies Dit Plan</a>
+                </div>
+                <div class="price-plan animate-slide-right">
+                    <h3>Premium Plan</h3>
+                    <p class="price">€199</p>
+                    <ul>
+                        <li>Aangepast ontwerp</li>
+                        <li>Geavanceerde animaties</li>
+                        <li>Extra talen & features</li>
+                    </ul>
+                    <a href="#" class="cta-button">Kies Dit Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Sectie -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="animate-fade">Wat Zeggen Onze Klanten?</h2>
+            <div class="testimonial animate-slide-left">
+                <p>"Geweldige service! Onze bruiloft uitnodigingen waren perfect."</p>
+                <cite>- Anna & Tom</cite>
+            </div>
+            <div class="testimonial animate-slide-right">
+                <p>"Eenvoudig te gebruiken en mooi geanimeerd."</p>
+                <cite>- Lisa & Mark</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Sectie -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="animate-slide-left">Veelgestelde Vragen</h2>
+            <div class="faq-item">
+                <div class="faq-question">Is het een eenmalige betaling?</div>
+                <div class="faq-answer">Ja, geen maandelijkse kosten.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Kan ik het ontwerp aanpassen?</div>
+                <div class="faq-answer">Absoluut, personaliseer alles naar wens.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Jouw Digitale Uitnodigingen. Alle rechten voorbehouden.</p>
+    </footer>
+
+    <script>
+        // Eenvoudige JS voor animaties op scroll
+        const elements = document.querySelectorAll('.animate-fade, .animate-slide-left, .animate-slide-right');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        });
+        elements.forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // FAQ accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                answer.style.transition = 'opacity 0.5s ease';
+                answer.style.opacity = answer.style.display === 'block' ? '1' : '0';
+            });
+        });
+    </script>
+</body>
+</html>
