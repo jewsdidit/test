@@ -2,56 +2,78 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Verbeterde mobile viewport -->
-    <meta name="apple-mobile-web-app-capable" content="yes"> <!-- Voor iOS full-screen -->
-    <meta name="mobile-web-app-capable" content="yes"> <!-- Voor Android PWA -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>Bruiloft Uitnodiging - John & Jane</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json"> <!-- PWA manifest voor app-achtige feel -->
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <!-- Desktop melding (verborgen op mobiel) -->
+    <!-- Desktop melding -->
     <div id="desktop-message" class="desktop-message">
         <h1>Sorry!</h1>
         <p>Deze uitnodiging is alleen zichtbaar op mobiele devices (Android/iOS).</p>
         <p>Open deze pagina op je GSM voor de volledige ervaring.</p>
     </div>
 
-    <!-- Mobiele content (verborgen op desktop) -->
+    <!-- Mobiele content -->
     <div id="mobile-content" style="display: none;">
-        <!-- Achtergrond muziek (automatisch afspelen, loop) -->
         <audio id="bg-music" autoplay loop>
             <source src="assets/background.mp3" type="audio/mpeg">
-            Je browser ondersteunt geen audio.
         </audio>
-
-        <!-- Vogel piep geluid (wordt via JS afgespeeld) -->
         <audio id="chirp">
             <source src="assets/chirp.mp3" type="audio/mpeg">
-            Je browser ondersteunt geen audio.
         </audio>
 
-        <!-- Hoofd content met fade-in animatie -->
-        <div class="container">
-            <h1>We trouwen!</h1>
-            <p>Je bent van harte uitgenodigd voor de bruiloft van</p>
-            <h2>John & Jane</h2>
+        <!-- Navigatie -->
+        <nav class="navbar">
+            <ul>
+                <li>Home</li>
+                <li>Our Story</li>
+                <li>Gallery</li>
+                <li>RSVP</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+
+        <!-- Hero sectie: Save the Date -->
+        <section class="hero">
+            <h1>Save the Date</h1>
+            <p>Je bent uitgenodigd voor de bruiloft van John & Jane</p>
+        </section>
+
+        <!-- Foto frame -->
+        <section class="photo-frame">
+            <img src="assets/couple.png" alt="Couple Photo">
+        </section>
+
+        <!-- Event Details -->
+        <section class="event-details">
+            <h2>Event Details</h2>
             <p>Op 15 juni 2026</p>
             <p>In het prachtige Venue, Stad</p>
-            <p>RSVP: email@voorbeeld.com</p>
-        </div>
+            <button>RSVP</button>
+        </section>
 
-        <!-- Bloemen animaties (meerdere bloeiende bloemen) -->
-        <div class="flower flower1"></div>
-        <div class="flower flower2"></div>
-        <div class="flower flower3"></div>
-        <div class="flower flower4"></div>
+        <!-- Event Design -->
+        <section class="event-design">
+            <h2>Event Design</h2>
+            <p>Date & Time</p>
+            <img src="assets/calendar.png" alt="Calendar" class="calendar-icon">
+            <p>Venue: Venue, Stad</p>
+            <button>Choose Theme</button>
+        </section>
 
-        <!-- Vliegende vogels (meerdere met fly animatie) -->
-        <div class="bird bird1"></div>
-        <div class="bird bird2"></div>
-        <div class="bird bird3"></div>
+        <!-- Footer -->
+        <footer>
+            <p>Copyright © 2026 John & Jane. All rights reserved.</p>
+            <div class="audio-icon">🔊</div>
+        </footer>
+
+        <!-- Vallende vogels en blaadjes (gegenereerd via JS) -->
+        <div id="particles"></div>
     </div>
 
     <script src="script.js"></script>
