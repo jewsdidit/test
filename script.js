@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (bgMusic.paused) bgMusic.play();
         });
 
-        // Scroll animaties
+        // Scroll animaties voor sections
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -38,14 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
             section.style.transform = 'translateY(50px)';
             section.style.transition = 'opacity 1s, transform 1s';
             observer.observe(section);
-        });
-
-        // Touch for bird animation on mobile
-        document.querySelectorAll('.bird').forEach(bird => {
-            bird.addEventListener('touchstart', () => {
-                bird.style.transform = 'translateY(-10px)';
-                setTimeout(() => bird.style.transform = '', 500);
-            });
         });
     } else {
         desktopMessage.style.display = 'block';
