@@ -1,6 +1,7 @@
 AOS.init({
     duration: 1000,
-    once: true,
+    easing: 'ease-out-quart',
+    once: false,
     offset: 100
 });
 
@@ -24,16 +25,24 @@ function updateCountdown() {
 }
 
 updateCountdown();
-setInterval(updateCountdown, 60000); // update elke minuut
+setInterval(updateCountdown, 60000);
 
 document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-    // Formspree handelt submit af, confetti alleen bij succesvol versturen
     setTimeout(() => {
         confetti({
             particleCount: 150,
             spread: 70,
             origin: { y: 0.6 },
-            colors: ['#c9a98a', '#5a7d6e', '#f8e6e0']
+            colors: ['#d4af37', '#e07a9f', '#add8e6']
         });
     }, 500);
+});
+
+// Blur on scroll
+window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight * 0.3) {
+        document.body.classList.add('scrolled');
+    } else {
+        document.body.classList.remove('scrolled');
+    }
 });
