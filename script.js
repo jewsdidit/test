@@ -38,9 +38,10 @@ document.getElementById('rsvp-form').addEventListener('submit', function(e) {
     }, 500);
 });
 
-// Blur on scroll
+// Blur effect: only background image + overlay blurred/tinted on scroll
+// Class 'scrolled' added when scrollY > 0 (removes exactly at top)
 window.addEventListener('scroll', () => {
-    if (window.scrollY > window.innerHeight * 0.3) {
+    if (window.scrollY > 0) {
         document.body.classList.add('scrolled');
     } else {
         document.body.classList.remove('scrolled');
