@@ -11,10 +11,11 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: url('assets/background.png') center/cover fixed no-repeat;
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
+    position: relative;
+    background: #fffaf8; /* fallback creamy white */
 }
 
 h1, h2 {
@@ -76,6 +77,7 @@ h1, h2 {
 
 .hero-content {
     width: 100%;
+    z-index: 10;
 }
 
 .hero h1 {
@@ -160,15 +162,29 @@ button:hover {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
+/* Fixed background image (sharp at top, blurred on scroll) */
+.background-image {
+    position: fixed;
+    inset: 0;
+    background: url('assets/background.png') center/cover no-repeat;
+    z-index: -2;
+    transition: filter 0.6s ease;
+}
+
+/* Overlay (subtle dreamy tint on scroll) */
 .blur-overlay {
     position: fixed;
     inset: 0;
-    backdrop-filter: blur(20px);
-    background: rgba(255,250,255,0.4); /* light pink-white */
+    background: rgba(255,250,255,0.3); /* very light pink-white */
     opacity: 0;
     transition: opacity 0.6s ease;
+    z-index: -1;
     pointer-events: none;
-    z-index: 5;
+}
+
+/* Apply blur + overlay only to background when scrolled */
+body.scrolled .background-image {
+    filter: blur(20px);
 }
 
 body.scrolled .blur-overlay {
