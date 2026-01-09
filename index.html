@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="blur-overlay"></div>
+
     <nav class="nav">
         <ul class="nav-list">
             <li><a href="#hero">Home</a></li>
@@ -23,68 +25,67 @@
     </nav>
 
     <section id="hero" class="section hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content" data-aos="fade-down">
-            <h1>Wij trouwen!</h1>
-            <p class="couple-names">Anna & Jan</p>
-            <p class="date">15 augustus 2026</p>
-            <p class="welcome">Van harte uitgenodigd voor ons trouwfeest.<br>We kijken ernaar uit om deze dag met jullie te vieren.</p>
+        <div class="container hero-content">
+            <h1 data-aos="fade-down" data-aos-delay="0">Wij trouwen!</h1>
+            <p class="couple-names" data-aos="fade-down" data-aos-delay="300">Anna & Jan</p>
+            <p class="date" data-aos="fade-down" data-aos-delay="600">15 augustus 2026</p>
+            <p class="welcome" data-aos="fade-down" data-aos-delay="900">Van harte uitgenodigd voor ons trouwfeest.<br>We kijken ernaar uit om deze dag met jullie te vieren.</p>
         </div>
     </section>
 
     <section id="details" class="section">
         <div class="container" data-aos="fade-up">
-            <h2>Details</h2>
-            <p>Ceremonie & feest<br>Kasteel de Haar, Utrecht</p>
-            <p>15 augustus 2026<br>Vanaf 14:00 uur</p>
+            <h2 data-aos="fade-up" data-aos-delay="0">Details</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Ceremonie & feest<br>Kasteel de Haar, Utrecht</p>
+            <p data-aos="fade-up" data-aos-delay="400">15 augustus 2026<br>Vanaf 14:00 uur</p>
         </div>
     </section>
 
     <section id="programma" class="section alt-bg">
         <div class="container" data-aos="fade-up">
-            <h2>Dagprogramma</h2>
+            <h2 data-aos="fade-up" data-aos-delay="0">Dagprogramma</h2>
             <ul class="programma-list">
-                <li>14:00 — Ceremonie</li>
-                <li>15:30 — Receptie & foto's</li>
-                <li>18:00 — Diner</li>
-                <li>20:00 — Feest met live muziek & dans</li>
-                <li>01:00 — Einde</li>
+                <li data-aos="fade-up" data-aos-delay="100">14:00 — Ceremonie</li>
+                <li data-aos="fade-up" data-aos-delay="200">15:30 — Receptie & foto's</li>
+                <li data-aos="fade-up" data-aos-delay="300">18:00 — Diner</li>
+                <li data-aos="fade-up" data-aos-delay="400">20:00 — Feest met live muziek & dans</li>
+                <li data-aos="fade-up" data-aos-delay="500">01:00 — Einde</li>
             </ul>
         </div>
     </section>
 
     <section id="aftellen" class="section">
         <div class="container" data-aos="fade-up">
-            <h2>Aftellen tot de grote dag</h2>
-            <div id="countdown" class="countdown"></div>
+            <h2 data-aos="fade-up" data-aos-delay="0">Aftellen tot de grote dag</h2>
+            <div id="countdown" class="countdown" data-aos="fade-up" data-aos-delay="200"></div>
         </div>
     </section>
 
     <section id="rsvp" class="section alt-bg">
         <div class="container" data-aos="fade-up">
-            <h2>RSVP</h2>
-            <p>Graag vóór 1 juli 2026 laten weten of je komt.</p>
+            <h2 data-aos="fade-up" data-aos-delay="0">RSVP</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Graag vóór 1 juli 2026 laten weten of je komt.</p>
             <form id="rsvp-form" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
-                <input type="text" name="naam" placeholder="Je naam" required>
-                <input type="number" name="gasten" placeholder="Aantal personen (incl. jezelf)" min="1" required>
-                <select name="aanwezigheid" required>
+                <input type="text" name="naam" placeholder="Je naam" required data-aos="fade-up" data-aos-delay="300">
+                <input type="number" name="gasten" placeholder="Aantal personen (incl. jezelf)" min="1" required data-aos="fade-up" data-aos-delay="400">
+                <select name="aanwezigheid" required data-aos="fade-up" data-aos-delay="500">
                     <option value="" disabled selected>Kom je?</option>
                     <option value="ja">Ja, graag!</option>
                     <option value="nee">Helaas niet</option>
                     <option value="misschien">Misschien</option>
                 </select>
-                <textarea name="dieet" placeholder="Dieetwensen of allergieën (optioneel)" rows="3"></textarea>
-                <textarea name="bericht" placeholder="Persoonlijk bericht (optioneel)" rows="4"></textarea>
-                <button type="submit">Verstuur</button>
+                <textarea name="dieet" placeholder="Dieetwensen of allergieën (optioneel)" rows="3" data-aos="fade-up" data-aos-delay="600"></textarea>
+                <textarea name="bericht" placeholder="Persoonlijk bericht (optioneel)" rows="4" data-aos="fade-up" data-aos-delay="700"></textarea>
+                <button type="submit" data-aos="fade-up" data-aos-delay="800">Verstuur</button>
             </form>
         </div>
     </section>
 
     <section id="locatie" class="section">
         <div class="container" data-aos="fade-up">
-            <h2>Locatie</h2>
-            <p>Kasteel de Haar<br>Haarzuilens, Utrecht</p>
-            <div class="map-wrapper">
+            <h2 data-aos="fade-up" data-aos-delay="0">Locatie</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Kasteel de Haar<br>Haarzuilens, Utrecht</p>
+            <div class="map-wrapper" data-aos="fade-up" data-aos-delay="400">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2457.699257228547!2d5.03272831572266!3d52.12000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c66f0d5e5e5e5d%3A0x5e5e5e5e5e5e5e5e!2sKasteel%20de%20Haar!5e0!3m2!1snl!2snl!4v1700000000000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
@@ -92,8 +93,8 @@
 
     <section id="afsluiting" class="section alt-bg">
         <div class="container" data-aos="fade-up">
-            <h2>We kunnen niet wachten!</h2>
-            <p>Heb je vragen? Neem gerust contact op:<br>anna.jan@voorbeeld.com</p>
+            <h2 data-aos="fade-up" data-aos-delay="0">We kunnen niet wachten!</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Heb je vragen? Neem gerust contact op:<br>anna.jan@voorbeeld.com</p>
         </div>
     </section>
 
