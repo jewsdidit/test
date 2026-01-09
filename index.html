@@ -2,126 +2,103 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <title>Bruiloft Uitnodiging - John & Jane</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna & Jan — Wij trouwen!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <!-- Desktop melding -->
-    <div id="desktop-message" class="desktop-message">
-        <h1>Sorry!</h1>
-        <p>Deze uitnodiging is alleen zichtbaar op mobiele devices (Android/iOS).</p>
-        <p>Open deze pagina op je GSM voor de volledige ervaring.</p>
-    </div>
+    <nav class="nav">
+        <ul class="nav-list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#details">Details</a></li>
+            <li><a href="#programma">Programma</a></li>
+            <li><a href="#aftellen">Aftellen</a></li>
+            <li><a href="#rsvp">RSVP</a></li>
+            <li><a href="#locatie">Locatie</a></li>
+        </ul>
+    </nav>
 
-    <!-- Mobiele content -->
-    <div id="mobile-content" style="display: none;">
-        <audio id="bg-music" autoplay loop>
-            <source src="assets/background.mp3" type="audio/mpeg">
-        </audio>
-        <audio id="chirp">
-            <source src="assets/chirp.mp3" type="audio/mpeg">
-        </audio>
+    <section id="hero" class="section hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content" data-aos="fade-down">
+            <h1>Wij trouwen!</h1>
+            <p class="couple-names">Anna & Jan</p>
+            <p class="date">15 augustus 2026</p>
+            <p class="welcome">Van harte uitgenodigd voor ons trouwfeest.<br>We kijken ernaar uit om deze dag met jullie te vieren.</p>
+        </div>
+    </section>
 
-        <!-- Navigatie -->
-        <nav class="navbar">
-            <ul>
-                <li>Home</li>
-                <li>Our Story</li>
-                <li>Gallery</li>
-                <li>RSVP</li>
-                <li>Contact</li>
+    <section id="details" class="section">
+        <div class="container" data-aos="fade-up">
+            <h2>Details</h2>
+            <p>Ceremonie & feest<br>Kasteel de Haar, Utrecht</p>
+            <p>15 augustus 2026<br>Vanaf 14:00 uur</p>
+        </div>
+    </section>
+
+    <section id="programma" class="section alt-bg">
+        <div class="container" data-aos="fade-up">
+            <h2>Dagprogramma</h2>
+            <ul class="programma-list">
+                <li>14:00 — Ceremonie</li>
+                <li>15:30 — Receptie & foto's</li>
+                <li>18:00 — Diner</li>
+                <li>20:00 — Feest met live muziek & dans</li>
+                <li>01:00 — Einde</li>
             </ul>
-        </nav>
+        </div>
+    </section>
 
-        <!-- Hero sectie -->
-        <section class="hero">
-            <h1>Save the Date</h1>
-            <p>Je bent van harte uitgenodigd voor de bruiloft van John & Jane</p>
-        </section>
+    <section id="aftellen" class="section">
+        <div class="container" data-aos="fade-up">
+            <h2>Aftellen tot de grote dag</h2>
+            <div id="countdown" class="countdown"></div>
+        </div>
+    </section>
 
-        <!-- Foto frame -->
-        <section class="photo-frame">
-            <img src="assets/couple.png" alt="Couple Photo">
-        </section>
-
-        <!-- Our Story (langer maken) -->
-        <section class="our-story">
-            <h2>Our Story</h2>
-            <p>We ontmoetten elkaar op een zonnige dag in het park. Sindsdien is ons leven een avontuur vol liefde en lachen.</p>
-            <p>Van onze eerste date tot nu, elke moment is speciaal. We kunnen niet wachten om ons leven samen te vieren!</p>
-            <img src="assets/flower-border.png" alt="Floral Border" class="floral-decor">
-        </section>
-
-        <!-- Gallery (placeholders voor photos, langer) -->
-        <section class="gallery">
-            <h2>Gallery</h2>
-            <div class="gallery-grid">
-                <img src="assets/placeholder1.jpg" alt="Photo 1">
-                <img src="assets/placeholder2.jpg" alt="Photo 2">
-                <img src="assets/placeholder3.jpg" alt="Photo 3">
-                <img src="assets/placeholder4.jpg" alt="Photo 4">
-            </div>
-        </section>
-
-        <!-- Event Details -->
-        <section class="event-details">
-            <h2>Event Details</h2>
-            <p>Op 15 juni 2026</p>
-            <p>In het prachtige Venue, Stad</p>
-            <p>Kom en vier met ons!</p>
-            <button>RSVP</button>
-        </section>
-
-        <!-- RSVP Form (langer maken) -->
-        <section class="rsvp-form">
+    <section id="rsvp" class="section alt-bg">
+        <div class="container" data-aos="fade-up">
             <h2>RSVP</h2>
-            <form>
-                <input type="text" placeholder="Je Naam">
-                <input type="email" placeholder="Je Email">
-                <select>
-                    <option>Kom je?</option>
-                    <option>Ja</option>
-                    <option>Nee</option>
+            <p>Graag vóór 1 juli 2026 laten weten of je komt.</p>
+            <form id="rsvp-form" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+                <input type="text" name="naam" placeholder="Je naam" required>
+                <input type="number" name="gasten" placeholder="Aantal personen (incl. jezelf)" min="1" required>
+                <select name="aanwezigheid" required>
+                    <option value="" disabled selected>Kom je?</option>
+                    <option value="ja">Ja, graag!</option>
+                    <option value="nee">Helaas niet</option>
+                    <option value="misschien">Misschien</option>
                 </select>
+                <textarea name="dieet" placeholder="Dieetwensen of allergieën (optioneel)" rows="3"></textarea>
+                <textarea name="bericht" placeholder="Persoonlijk bericht (optioneel)" rows="4"></textarea>
                 <button type="submit">Verstuur</button>
             </form>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact -->
-        <section class="contact">
-            <h2>Contact</h2>
-            <p>Email: email@voorbeeld.com</p>
-            <p>Telefoon: +32 123 456 789</p>
-            <img src="assets/flower-border.png" alt="Floral Border" class="floral-decor">
-        </section>
+    <section id="locatie" class="section">
+        <div class="container" data-aos="fade-up">
+            <h2>Locatie</h2>
+            <p>Kasteel de Haar<br>Haarzuilens, Utrecht</p>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2457.699257228547!2d5.03272831572266!3d52.12000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c66f0d5e5e5e5d%3A0x5e5e5e5e5e5e5e5e!2sKasteel%20de%20Haar!5e0!3m2!1snl!2snl!4v1700000000000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer>
-            <p>Copyright © 2026 John & Jane. All rights reserved.</p>
-            <div class="audio-icon">🔊</div>
-        </footer>
+    <section id="afsluiting" class="section alt-bg">
+        <div class="container" data-aos="fade-up">
+            <h2>We kunnen niet wachten!</h2>
+            <p>Heb je vragen? Neem gerust contact op:<br>anna.jan@voorbeeld.com</p>
+        </div>
+    </section>
 
-        <!-- Falling petals layer -->
-        <div class="falling-petals"></div>
-
-        <!-- Statische vogels aan randen -->
-        <div class="bird left-bird1" style="background-image: url('assets/bird1.png');"></div>
-        <div class="bird left-bird2" style="background-image: url('assets/bird2.png');"></div>
-        <div class="bird right-bird1" style="background-image: url('assets/bird3.png');"></div>
-        <div class="bird right-bird2" style="background-image: url('assets/bird4.png');"></div>
-        <div class="bird left-bird3" style="background-image: url('assets/bird5.png');"></div>
-        <div class="bird right-bird3" style="background-image: url('assets/bird1.png');"></div>
-
-        <!-- Extra sparkles -->
-        <div class="sparkle sparkle1" style="background-image: url('assets/sparkle.png');"></div>
-        <div class="sparkle sparkle2" style="background-image: url('assets/sparkle.png');"></div>
-    </div>
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
