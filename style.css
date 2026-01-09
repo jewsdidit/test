@@ -5,13 +5,13 @@
 }
 
 body {
-    background-image: url('assets/background.jpg'); /* Nu altijd zichtbaar, pink sunset */
+    background-image: url('assets/background.jpg'); /* Sunset background altijd zichtbaar */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Fixed voor parallax tijdens scroll */
+    background-attachment: fixed;
     font-family: 'Great Vibes', cursive;
     color: #fff;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Zachtere schaduw */
     overflow-x: hidden;
     position: relative;
     min-height: 300vh;
@@ -27,20 +27,21 @@ body {
 }
 
 .flower-border {
-    position: fixed; /* Nu fixed, altijd op scherm */
+    position: fixed;
     width: 100%;
-    height: 200px; /* Groter voor beter frame */
+    height: 100px; /* Kleiner voor minder noise */
     background-size: contain;
     background-repeat: repeat-x;
     z-index: 15;
-    pointer-events: none; /* Niet klikbaar */
+    pointer-events: none;
+    opacity: 0.6; /* Subtieler, minder overdreven */
 }
 
 .top-border { top: 0; }
 .bottom-border { bottom: 0; transform: rotate(180deg); }
 
 .navbar {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.3); /* Transparanter voor background visibility */
     padding: 1rem;
     position: sticky;
     top: 0;
@@ -66,73 +67,93 @@ body {
     text-align: center;
     padding: 3rem 1rem;
     margin: 2rem 1rem;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2); /* Transparanter voor background */
     border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 182, 193, 0.5);
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.3); /* Zachtere glow */
     animation: fadeIn 1.5s ease-in-out;
-    position: relative; /* Om binnen frame te blijven */
-    z-index: 10; /* Onder borders */
+    position: relative;
+    z-index: 10;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3rem; /* Kleiner voor elegantie */
     color: #FF69B4;
 }
 
 .photo-frame img {
-    border: 8px solid #FFD700;
+    border: 5px solid #FFD700; /* Dunner frame */
     border-radius: 15px;
-    width: 90%;
-    max-width: 400px;
+    width: 80%;
+    max-width: 300px; /* Kleiner */
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Kleiner grid */
+    gap: 1rem;
 }
 
 .gallery-grid img {
     width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1); /* Minder shadow */
 }
 
 .rsvp-form form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    max-width: 350px;
+    gap: 1rem;
+    max-width: 300px;
     margin: 0 auto;
 }
 
 input, select {
-    padding: 0.7rem;
-    border-radius: 8px;
+    padding: 0.5rem;
+    border-radius: 5px;
     border: 1px solid #FF69B4;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.7);
 }
 
 button {
     background: #FF69B4;
     border: none;
-    padding: 0.7rem;
-    border-radius: 8px;
+    padding: 0.5rem;
+    border-radius: 5px;
     cursor: pointer;
     color: #fff;
 }
 
 footer {
     text-align: center;
-    padding: 1.5rem;
-    background: rgba(255, 182, 193, 0.3);
+    padding: 1rem;
+    background: rgba(255, 182, 193, 0.2);
     color: #fff;
-    position: relative;
-    z-index: 10;
 }
 
-/* Rest same as before... (vogels, petals, sparkles) */
+/* Vogels kleiner en subtieler */
+.bird {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80px; /* Kleiner */
+    height: 80px;
+    z-index: 10;
+    transition: transform 0.5s ease;
+    opacity: 0.8; /* Subtieler */
+}
 
+.bird:hover {
+    transform: translateY(-5px); /* Minder beweging */
+}
+
+.left-bird1 { left: 0; top: 15%; transform: rotate(-10deg); }
+.left-bird2 { left: -5px; top: 45%; transform: rotate(-5deg); }
+.left-bird3 { left: 0; top: 75%; transform: rotate(5deg); }
+.right-bird1 { right: 0; top: 25%; transform: scaleX(-1) rotate(-10deg); }
+.right-bird2 { right: -5px; top: 55%; transform: scaleX(-1) rotate(-5deg); }
+.right-bird3 { right: 0; top: 85%; transform: scaleX(-1) rotate(5deg); }
+
+/* Falling petals subtieler */
 .falling-petals {
     position: absolute;
     top: 0;
@@ -142,8 +163,8 @@ footer {
     background-image: url('assets/petal.png');
     background-size: cover;
     background-position: center top;
-    animation: fallPetals 25s linear infinite;
-    opacity: 0.7;
+    animation: fallPetals 30s linear infinite; /* Langzamer */
+    opacity: 0.5; /* Fader voor minder noise */
     z-index: 5;
     pointer-events: none;
 }
@@ -153,14 +174,33 @@ footer {
     100% { background-position: center 0; }
 }
 
-/* Vogels en sparkles same */
+/* Sparkles gereduceerd */
+.sparkle {
+    position: absolute;
+    background-size: contain;
+    width: 40px; /* Kleiner */
+    height: 40px;
+    animation: twinkle 4s infinite alternate ease-in-out;
+    opacity: 0.5;
+}
 
+.sparkle1 { top: 20%; left: 30%; }
+.sparkle2 { top: 50%; right: 35%; }
+.sparkle3 { top: 80%; left: 40%; }
+
+@keyframes twinkle {
+    0% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+    100% { opacity: 0.6; transform: scale(1) rotate(10deg); }
+}
+
+/* Responsive */
 @media (min-width: 769px) {
-    .flower-border { height: 250px; }
-    .hero h1 { font-size: 4.5rem; }
+    .flower-border { height: 150px; }
+    .hero h1 { font-size: 4rem; }
 }
 
 @media (max-width: 768px) {
-    .flower-border { height: 150px; }
-    .hero h1 { font-size: 3rem; }
+    .flower-border { height: 80px; } /* Nog kleiner op GSM */
+    .hero h1 { font-size: 2.5rem; }
+    .bird { width: 60px; height: 60px; }
 }
