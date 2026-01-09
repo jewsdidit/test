@@ -11,14 +11,15 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: #faf6f3;
-    color: #444;
+    background: url('assets/background.png') center/cover fixed no-repeat;
+    color: #333;
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 h1, h2 {
     font-family: 'Playfair Display', serif;
-    color: #5a7d6e; /* sage green */
+    color: #e07a9f; /* pastel pink */
 }
 
 .container {
@@ -30,19 +31,20 @@ h1, h2 {
 .section {
     padding: 5rem 0;
     text-align: center;
+    position: relative;
 }
 
 .alt-bg {
-    background: linear-gradient(to bottom, #f0f7f4, #faf6f3); /* subtle sage tint */
+    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,250,255,0.8));
 }
 
 .nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255,255,255,0.9);
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .nav-list {
@@ -56,56 +58,47 @@ h1, h2 {
 .nav-list li a {
     padding: 0.8rem 1rem;
     text-decoration: none;
-    color: #5a7d6e;
+    color: #e07a9f;
     font-weight: 500;
     transition: color 0.3s;
 }
 
 .nav-list li a:hover {
-    color: #c9a98a; /* soft gold */
+    color: #d4af37; /* subtle gold */
 }
 
 .hero {
-    height: 100vh;
-    background: url('placeholder-hero.jpg') center/cover no-repeat; /* vervang door eigen foto */
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
 }
 
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(250,246,243,0.3), rgba(240,247,244,0.6));
-}
-
 .hero-content {
-    position: relative;
-    z-index: 1;
+    width: 100%;
 }
 
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    color: #5a7d6e;
 }
 
 .couple-names {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin: 1rem 0;
-    color: #c9a98a;
+    color: #d4af37;
 }
 
 .date {
     font-size: 1.8rem;
     margin: 1.5rem 0;
-    color: #5a7d6e;
 }
 
 .welcome {
     font-size: 1.2rem;
     max-width: 600px;
     margin: 0 auto;
+    color: #555;
 }
 
 .programma-list {
@@ -117,14 +110,14 @@ h1, h2 {
 
 .programma-list li {
     padding: 0.8rem 0;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #eee;
     font-size: 1.1rem;
 }
 
 #countdown {
     font-size: 2rem;
     margin: 2rem 0;
-    color: #c9a98a;
+    color: #d4af37;
     font-weight: 500;
 }
 
@@ -141,10 +134,11 @@ input, select, textarea {
     border: 1px solid #ddd;
     border-radius: 8px;
     font-family: inherit;
+    background: rgba(255,255,255,0.9);
 }
 
 button {
-    background: #c9a98a;
+    background: #d4af37;
     color: white;
     padding: 1rem;
     border: none;
@@ -155,7 +149,7 @@ button {
 }
 
 button:hover {
-    background: #b89778;
+    background: #c9a32f;
 }
 
 .map-wrapper {
@@ -166,18 +160,25 @@ button:hover {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Desktop adjustments */
+.blur-overlay {
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(20px);
+    background: rgba(255,250,255,0.4); /* light pink-white */
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    z-index: 5;
+}
+
+body.scrolled .blur-overlay {
+    opacity: 1;
+}
+
+/* Desktop */
 @media (min-width: 768px) {
-    .hero h1 {
-        font-size: 5rem;
-    }
-    .couple-names {
-        font-size: 3.5rem;
-    }
-    .date {
-        font-size: 2.2rem;
-    }
-    .welcome {
-        font-size: 1.4rem;
-    }
+    .hero h1 { font-size: 5rem; }
+    .couple-names { font-size: 3.5rem; }
+    .date { font-size: 2.2rem; }
+    .welcome { font-size: 1.4rem; }
 }
