@@ -33,17 +33,7 @@ document.getElementById('rsvp-form').addEventListener('submit', function(e) {
             particleCount: 150,
             spread: 70,
             origin: { y: 0.6 },
-            colors: ['#d4af37', '#e07a9f', '#add8e6']
+            colors: ['#BD2A2A', '#9B111E', '#FFE9A1']
         });
     }, 500);
-});
-
-// Blur effect: only background image + overlay blurred/tinted on scroll
-// Class 'scrolled' added when scrollY > 0 (removes exactly at top)
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 0) {
-        document.body.classList.add('scrolled');
-    } else {
-        document.body.classList.remove('scrolled');
-    }
 });
