@@ -1,4 +1,14 @@
 /* Mobile-first */
+/* Color variables - Dark Red and Cream theme */
+:root {
+    --primary-red: #7C0A02;      /* Main headings, accents */
+    --medium-red: #9B111E;      /* Secondary headings, hover */
+    --bright-red: #BD2A2A;      /* Buttons, links */
+    --cream: #FFD0A1;           /* Card backgrounds */
+    --light-cream: #FFF8BD;     /* Section backgrounds, overlays */
+    --soft-gold: #FFE9A1;       /* Accents, borders, icons */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,16 +21,20 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    color: #333;
+    background: var(--light-cream);
+    color: var(--primary-red);
     line-height: 1.6;
     min-height: 100vh;
-    position: relative;
-    background: #fffaf8; /* fallback creamy white */
 }
 
-h1, h2 {
+h1, .couple-names {
+    font-family: 'Great Vibes', cursive;
+    color: var(--primary-red);
+}
+
+h2 {
     font-family: 'Playfair Display', serif;
-    color: #e07a9f; /* pastel pink */
+    color: var(--medium-red);
 }
 
 .container {
@@ -36,16 +50,16 @@ h1, h2 {
 }
 
 .alt-bg {
-    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,250,255,0.8));
+    background: var(--cream);
 }
 
 .nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 248, 189, 0.95); /* light-cream tint */
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(124, 10, 2, 0.1);
 }
 
 .nav-list {
@@ -59,13 +73,13 @@ h1, h2 {
 .nav-list li a {
     padding: 0.8rem 1rem;
     text-decoration: none;
-    color: #e07a9f;
+    color: var(--primary-red);
     font-weight: 500;
     transition: color 0.3s;
 }
 
 .nav-list li a:hover {
-    color: #d4af37; /* subtle gold */
+    color: var(--medium-red);
 }
 
 .hero {
@@ -73,6 +87,7 @@ h1, h2 {
     display: flex;
     align-items: center;
     position: relative;
+    background: var(--light-cream);
 }
 
 .hero-content {
@@ -81,26 +96,27 @@ h1, h2 {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: 1rem;
 }
 
 .couple-names {
-    font-size: 2.8rem;
+    font-size: 3.5rem;
     margin: 1rem 0;
-    color: #d4af37;
+    color: var(--medium-red);
 }
 
 .date {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin: 1.5rem 0;
+    color: var(--primary-red);
 }
 
 .welcome {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     max-width: 600px;
     margin: 0 auto;
-    color: #555;
+    color: var(--primary-red);
 }
 
 .programma-list {
@@ -112,14 +128,15 @@ h1, h2 {
 
 .programma-list li {
     padding: 0.8rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--soft-gold);
     font-size: 1.1rem;
+    color: var(--primary-red);
 }
 
 #countdown {
     font-size: 2rem;
     margin: 2rem 0;
-    color: #d4af37;
+    color: var(--medium-red);
     font-weight: 500;
 }
 
@@ -129,19 +146,24 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    background: var(--cream);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(124, 10, 2, 0.1);
+    border: 1px solid var(--soft-gold);
 }
 
 input, select, textarea {
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--soft-gold);
     border-radius: 8px;
     font-family: inherit;
-    background: rgba(255,255,255,0.9);
+    background: #ffffff;
 }
 
 button {
-    background: #d4af37;
-    color: white;
+    background: var(--bright-red);
+    color: var(--cream);
     padding: 1rem;
     border: none;
     border-radius: 8px;
@@ -151,7 +173,7 @@ button {
 }
 
 button:hover {
-    background: #c9a32f;
+    background: var(--medium-red);
 }
 
 .map-wrapper {
@@ -159,42 +181,14 @@ button:hover {
     max-width: 800px;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Fixed background image (sharp at top, blurred on scroll) */
-.background-image {
-    position: fixed;
-    inset: 0;
-    background: url('assets/background.png') center/cover no-repeat;
-    z-index: -2;
-    transition: filter 0.6s ease;
-}
-
-/* Overlay (subtle dreamy tint on scroll) */
-.blur-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(255,250,255,0.3); /* very light pink-white */
-    opacity: 0;
-    transition: opacity 0.6s ease;
-    z-index: -1;
-    pointer-events: none;
-}
-
-/* Apply blur + overlay only to background when scrolled */
-body.scrolled .background-image {
-    filter: blur(20px);
-}
-
-body.scrolled .blur-overlay {
-    opacity: 1;
+    box-shadow: 0 10px 30px rgba(124, 10, 2, 0.1);
+    border: 2px solid var(--soft-gold);
 }
 
 /* Desktop */
 @media (min-width: 768px) {
-    .hero h1 { font-size: 5rem; }
-    .couple-names { font-size: 3.5rem; }
-    .date { font-size: 2.2rem; }
-    .welcome { font-size: 1.4rem; }
+    .hero h1 { font-size: 5.5rem; }
+    .couple-names { font-size: 4.5rem; }
+    .date { font-size: 2.5rem; }
+    .welcome { font-size: 1.5rem; }
 }
