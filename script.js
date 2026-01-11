@@ -38,9 +38,11 @@ document.getElementById('rsvp-form').addEventListener('submit', function(e) {
     }, 500);
 });
 
-// Scroll-based metallic shine movement
-// Updates --shine-pos CSS variable based on scroll position for dynamic glint effect
+// Realistic metallic shine movement on scroll
+// Updates --shine-position CSS variable for smooth horizontal glint sweep based on scroll position
+// Subtle speed (0.05 multiplier) for elegant reflection effect
 window.addEventListener('scroll', () => {
-    const scrollPos = (window.scrollY * 0.3) % 200 - 100; // Smooth looping sweep, adjust multiplier for speed
-    document.documentElement.style.setProperty('--shine-pos', `${scrollPos}%`);
+    const scrollPos = window.scrollY * 0.05;
+    const shinePos = 50 + (scrollPos % 100) - 50; // Loops smoothly between 0% and 100%
+    document.documentElement.style.setProperty('--shine-position', `${shinePos}%`);
 });
