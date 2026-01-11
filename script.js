@@ -33,7 +33,7 @@ document.getElementById('rsvp-form').addEventListener('submit', function(e) {
             particleCount: 150,
             spread: 70,
             origin: { y: 0.6 },
-            colors: ['#BD2A2A', '#9B111E', '#FFE9A1']
+            colors: ['#7C0A02', '#8B0000', '#E8D4B0']
         });
     }, 500);
 });
