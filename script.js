@@ -38,18 +38,40 @@ document.getElementById('rsvp-form').addEventListener('submit', function(e) {
     }, 500);
 });
 
-// Background blur + overlay on scroll (sharp at top)
+// Background blur + overlay on scroll
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) { // Small threshold for smooth activation
+    if (window.scrollY > 50) {
         document.body.classList.add('scrolled');
     } else {
         document.body.classList.remove('scrolled');
     }
 });
 
-// Metallic gold shine movement on scroll
+// Gold shine movement on scroll
 window.addEventListener('scroll', () => {
     const scrollPos = window.scrollY * 0.08;
     const shinePos = 50 + (scrollPos % 100) - 50;
     document.documentElement.style.setProperty('--shine-position', `${shinePos}%`);
+});
+
+// Active nav link highlight
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
 });
