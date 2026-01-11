@@ -1,12 +1,12 @@
 /* Mobile-first */
-/* Luxurious Dark Red & Cream Theme */
+/* Luxurious Gold/Red/Cream Theater Theme */
 :root {
-    --deep-red: #7C0A02;         /* Primary headings, accents, buttons */
-    --medium-red: #8B0000;      /* Secondary accents, hover */
-    --cream-bg: #FDF5E6;         /* Main background */
-    --pearl-white: #F5F0E8;     /* Card backgrounds */
-    --soft-gold: #E8D4B0;       /* Borders, dividers, subtle highlights */
-    --shine-position: 50%;      /* Controlled by JS for scroll-based shine */
+    --gold-primary: #D4AF37;     /* Main metallic gold accents */
+    --gold-dark: #C9A227;       /* Hover/shadow gold */
+    --deep-red: #8B0000;        /* Secondary red accents */
+    --cream-bg: #FDF5E6;        /* Main background */
+    --pearl-white: #FFF8E7;     /* Card backgrounds */
+    --soft-gold: #E8D4B0;       /* Subtle borders */
 }
 
 * {
@@ -25,6 +25,7 @@ body {
     color: var(--deep-red);
     line-height: 1.6;
     min-height: 100vh;
+    position: relative;
 }
 
 h1, .couple-names {
@@ -52,7 +53,7 @@ h2 {
     background: var(--pearl-white);
     padding: 2.5rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(124, 10, 2, 0.08);
+    box-shadow: 0 10px 30px rgba(139, 0, 0, 0.08);
     border: 1px solid var(--soft-gold);
 }
 
@@ -62,7 +63,7 @@ h2 {
     width: 100%;
     background: rgba(253, 245, 230, 0.95);
     z-index: 1000;
-    box-shadow: 0 2px 15px rgba(124, 10, 2, 0.1);
+    box-shadow: 0 2px 15px rgba(139, 0, 0, 0.1);
 }
 
 .nav-list {
@@ -76,13 +77,13 @@ h2 {
 .nav-list li a {
     padding: 0.8rem 1.2rem;
     text-decoration: none;
-    color: var(--deep-red);
+    color: var(--gold-primary);
     font-weight: 500;
     transition: color 0.3s;
 }
 
 .nav-list li a:hover {
-    color: var(--medium-red);
+    color: var(--gold-dark);
 }
 
 .hero {
@@ -90,7 +91,6 @@ h2 {
     display: flex;
     align-items: center;
     position: relative;
-    background: var(--cream-bg);
 }
 
 .hero-content {
@@ -117,9 +117,10 @@ h2 {
     font-size: 1.3rem;
     max-width: 600px;
     margin: 0 auto;
+    color: var(--deep-red);
 }
 
-/* Dagprogramma - refined layout */
+/* Dagprogramma layout */
 .programma-timeline {
     max-width: 600px;
     margin: 0 auto;
@@ -133,8 +134,8 @@ h2 {
     padding: 2rem;
     margin: 1.5rem 0;
     border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(124, 10, 2, 0.06);
-    border-left: 6px solid var(--deep-red);
+    box-shadow: 0 8px 25px rgba(139, 0, 0, 0.06);
+    border-left: 6px solid var(--gold-primary);
     position: relative;
 }
 
@@ -160,24 +161,51 @@ h2 {
     color: #333;
 }
 
-/* Realistic glossy metallic red text with scroll-based moving shine */
-/* Base metallic gradient + bevel shadows for 3D depth */
-.metallic-red {
+/* Fixed theater curtain background (sharp at top) */
+.background-image {
+    position: fixed;
+    inset: 0;
+    background: url('assets/background.jpg') center/cover no-repeat;
+    z-index: -2;
+    transition: filter 0.8s ease;
+}
+
+/* Dark overlay for dreamy effect on scroll */
+.blur-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Blur + overlay activated on scroll */
+body.scrolled .background-image {
+    filter: blur(18px);
+}
+
+body.scrolled .blur-overlay {
+    opacity: 1;
+}
+
+/* Realistic glossy metallic gold text with scroll-based moving shine */
+.metallic-gold {
     position: relative;
     display: inline-block;
-    background: linear-gradient(145deg, #5a0000 0%, var(--deep-red) 30%, #a80000 50%, var(--deep-red) 70%, #5a0000 100%);
+    background: linear-gradient(145deg, #b8860b 0%, var(--gold-primary) 30%, #ffd700 50%, var(--gold-primary) 70%, #b8860b 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     text-fill-color: transparent;
     text-shadow: 
-        0 2px 4px rgba(0,0,0,0.6),
+        0 2px 4px rgba(0,0,0,0.4),
         0 0 10px rgba(255,255,255,0.2),
-        0 4px 8px rgba(0,0,0,0.4); /* Bevel and inner glow for polished metal look */
+        0 4px 8px rgba(0,0,0,0.3);
 }
 
-/* Dynamic moving highlight/glint layer */
-.metallic-red::before {
+.metallic-gold::before {
     content: attr(data-text);
     position: absolute;
     top: 0;
@@ -186,23 +214,21 @@ h2 {
     height: 100%;
     background: linear-gradient(90deg, 
         transparent 30%, 
-        rgba(255,255,255,0.5) 50%, 
+        rgba(255,255,255,0.6) 50%, 
         transparent 70%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
     background-size: 200% 100%;
-    background-position: var(--shine-position) 50%;
+    background-position: var(--shine-position, 50%) 50%;
     mix-blend-mode: overlay;
     pointer-events: none;
-    transition: background-position 0.1s ease; /* Smooth movement */
 }
 
 #countdown {
     font-size: 2rem;
     margin: 2rem 0;
-    color: var(--deep-red);
+    color: var(--gold-primary);
     font-weight: 500;
 }
 
@@ -222,8 +248,8 @@ input, select, textarea {
 }
 
 button {
-    background: var(--deep-red);
-    color: var(--pearl-white);
+    background: var(--gold-primary);
+    color: #333;
     padding: 1rem;
     border: none;
     border-radius: 10px;
@@ -233,7 +259,7 @@ button {
 }
 
 button:hover {
-    background: var(--medium-red);
+    background: var(--gold-dark);
 }
 
 .map-wrapper {
@@ -241,11 +267,22 @@ button:hover {
     max-width: 800px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(124, 10, 2, 0.08);
+    box-shadow: 0 10px 30px rgba(139, 0, 0, 0.08);
     border: 1px solid var(--soft-gold);
 }
 
-/* Responsive - two-column on desktop */
+/* Responsive */
+@media (max-width: 768px) {
+    .programma-item {
+        padding: 1.8rem;
+    }
+    .programma-time {
+        font-size: 1.8rem;
+    }
+    .hero h1 { font-size: 4rem; }
+    .couple-names { font-size: 3.2rem; }
+}
+
 @media (min-width: 768px) {
     .programma-item {
         flex-direction: row;
@@ -254,18 +291,15 @@ button:hover {
         text-align: left;
         padding: 2.5rem 3rem;
     }
-
     .programma-time {
         margin-bottom: 0;
         margin-right: 3rem;
         font-size: 2.2rem;
     }
-
     .programma-event {
         text-align: right;
         font-size: 1.6rem;
     }
-
     .hero h1 { font-size: 6rem; }
     .couple-names { font-size: 5rem; }
     .date { font-size: 2.8rem; }
