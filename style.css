@@ -1,12 +1,11 @@
 /* Mobile-first */
-/* Color variables - Dark Red and Cream theme */
+/* Luxurious Dark Red & Cream Theme */
 :root {
-    --primary-red: #7C0A02;      /* Main headings, accents */
-    --medium-red: #9B111E;      /* Secondary headings, hover */
-    --bright-red: #BD2A2A;      /* Buttons, links */
-    --cream: #FFD0A1;           /* Card backgrounds */
-    --light-cream: #FFF8BD;     /* Section backgrounds, overlays */
-    --soft-gold: #FFE9A1;       /* Accents, borders, icons */
+    --deep-red: #7C0A02;         /* Primary headings, accents, buttons */
+    --medium-red: #8B0000;      /* Secondary accents, hover */
+    --cream-bg: #FDF5E6;         /* Main background */
+    --pearl-white: #F5F0E8;     /* Card backgrounds */
+    --soft-gold: #E8D4B0;       /* Borders, dividers, subtle highlights */
 }
 
 * {
@@ -21,20 +20,21 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: var(--light-cream);
-    color: var(--primary-red);
+    background: var(--cream-bg);
+    color: var(--deep-red);
     line-height: 1.6;
     min-height: 100vh;
 }
 
 h1, .couple-names {
     font-family: 'Great Vibes', cursive;
-    color: var(--primary-red);
+    color: var(--deep-red);
 }
 
 h2 {
     font-family: 'Playfair Display', serif;
-    color: var(--medium-red);
+    color: var(--deep-red);
+    margin-bottom: 1.5rem;
 }
 
 .container {
@@ -49,17 +49,21 @@ h2 {
     position: relative;
 }
 
-.alt-bg {
-    background: var(--cream);
+.card {
+    background: var(--pearl-white);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(124, 10, 2, 0.08);
+    border: 1px solid var(--soft-gold);
 }
 
 .nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 248, 189, 0.95); /* light-cream tint */
+    background: rgba(253, 245, 230, 0.95); /* cream-bg tint */
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(124, 10, 2, 0.1);
+    box-shadow: 0 2px 15px rgba(124, 10, 2, 0.1);
 }
 
 .nav-list {
@@ -71,9 +75,9 @@ h2 {
 }
 
 .nav-list li a {
-    padding: 0.8rem 1rem;
+    padding: 0.8rem 1.2rem;
     text-decoration: none;
-    color: var(--primary-red);
+    color: var(--deep-red);
     font-weight: 500;
     transition: color 0.3s;
 }
@@ -87,7 +91,7 @@ h2 {
     display: flex;
     align-items: center;
     position: relative;
-    background: var(--light-cream);
+    background: var(--cream-bg);
 }
 
 .hero-content {
@@ -96,77 +100,88 @@ h2 {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     margin-bottom: 1rem;
 }
 
 .couple-names {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     margin: 1rem 0;
-    color: var(--medium-red);
 }
 
 .date {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin: 1.5rem 0;
-    color: var(--primary-red);
 }
 
 .welcome {
     font-size: 1.3rem;
     max-width: 600px;
     margin: 0 auto;
-    color: var(--primary-red);
 }
 
-.programma-list {
-    list-style: none;
-    max-width: 400px;
+/* Timeline for Dagprogramma */
+.timeline {
+    max-width: 500px;
     margin: 2rem auto 0;
-    text-align: left;
 }
 
-.programma-list li {
-    padding: 0.8rem 0;
-    border-bottom: 1px solid var(--soft-gold);
+.timeline-item {
+    background: var(--pearl-white);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-left: 4px solid var(--deep-red);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(124, 10, 2, 0.05);
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 1.1rem;
-    color: var(--primary-red);
+}
+
+.timeline-item .time {
+    font-weight: 600;
+    color: var(--deep-red);
+}
+
+.timeline-item::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--soft-gold);
+    margin: 1rem auto 0;
+    width: 80%;
 }
 
 #countdown {
     font-size: 2rem;
     margin: 2rem 0;
-    color: var(--medium-red);
+    color: var(--deep-red);
     font-weight: 500;
 }
 
 form {
-    max-width: 500px;
-    margin: 2rem auto 0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    background: var(--cream);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(124, 10, 2, 0.1);
-    border: 1px solid var(--soft-gold);
+    gap: 1.2rem;
+    margin-top: 1.5rem;
 }
 
 input, select, textarea {
     padding: 1rem;
     border: 1px solid var(--soft-gold);
-    border-radius: 8px;
+    border-radius: 10px;
     font-family: inherit;
     background: #ffffff;
 }
 
 button {
-    background: var(--bright-red);
-    color: var(--cream);
+    background: var(--deep-red);
+    color: var(--pearl-white);
     padding: 1rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 1.1rem;
     cursor: pointer;
     transition: background 0.3s;
@@ -179,16 +194,17 @@ button:hover {
 .map-wrapper {
     margin: 2rem auto;
     max-width: 800px;
-    border-radius: 15px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(124, 10, 2, 0.1);
-    border: 2px solid var(--soft-gold);
+    box-shadow: 0 10px 30px rgba(124, 10, 2, 0.08);
+    border: 1px solid var(--soft-gold);
 }
 
 /* Desktop */
 @media (min-width: 768px) {
-    .hero h1 { font-size: 5.5rem; }
-    .couple-names { font-size: 4.5rem; }
-    .date { font-size: 2.5rem; }
-    .welcome { font-size: 1.5rem; }
+    .hero h1 { font-size: 6rem; }
+    .couple-names { font-size: 5rem; }
+    .date { font-size: 2.8rem; }
+    .welcome { font-size: 1.6rem; }
+    .timeline-item { padding: 2rem; }
 }
