@@ -34,7 +34,7 @@ h1, .couple-names {
 h2 {
     font-family: 'Playfair Display', serif;
     color: var(--deep-red);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .container {
@@ -61,7 +61,7 @@ h2 {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(253, 245, 230, 0.95); /* cream-bg tint */
+    background: rgba(253, 245, 230, 0.95);
     z-index: 1000;
     box-shadow: 0 2px 15px rgba(124, 10, 2, 0.1);
 }
@@ -120,38 +120,93 @@ h2 {
     margin: 0 auto;
 }
 
-/* Timeline for Dagprogramma */
-.timeline {
-    max-width: 500px;
-    margin: 2rem auto 0;
+/* Dagprogramma - refined two-column timeline */
+.programma-timeline {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.timeline-item {
-    background: var(--pearl-white);
-    padding: 1.5rem;
-    margin: 1rem 0;
-    border-left: 4px solid var(--deep-red);
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(124, 10, 2, 0.05);
-    text-align: left;
+.programma-item {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    font-size: 1.1rem;
+    justify-content: space-between;
+    background: var(--pearl-white);
+    padding: 1.8rem 2rem;
+    margin: 1.2rem 0;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(124, 10, 2, 0.06);
+    border-left: 5px solid var(--deep-red);
+    position: relative;
 }
 
-.timeline-item .time {
-    font-weight: 600;
-    color: var(--deep-red);
-}
-
-.timeline-item::after {
+.programma-item::after {
     content: '';
-    display: block;
-    height: 1px;
-    background: var(--soft-gold);
-    margin: 1rem auto 0;
+    position: absolute;
+    bottom: -0.6rem;
+    left: 10%;
     width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--soft-gold), transparent);
+}
+
+.programma-time {
+    font-size: 1.8rem;
+    font-weight: 700;
+    min-width: 120px;
+    text-align: left;
+}
+
+.programma-event {
+    font-size: 1.3rem;
+    font-family: 'Playfair Display', serif;
+    color: #333;
+    text-align: right;
+    flex: 1;
+}
+
+/* Metallic shiny red text effect */
+.metallic-red {
+    position: relative;
+    background: linear-gradient(90deg, 
+        #5a0000 0%, 
+        var(--deep-red) 20%, 
+        #a00000 40%, 
+        var(--deep-red) 60%, 
+        #5a0000 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Dynamic shine highlight (moves on scroll) */
+.metallic-red::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, 
+        transparent 30%, 
+        rgba(255,255,255,0.4) 50%, 
+        transparent 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 100%;
+    animation: shine 8s linear infinite;
+    animation-play-state: paused;
+}
+
+body.scrolled .metallic-red::before {
+    animation-play-state: running;
+}
+
+@keyframes shine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 
 #countdown {
@@ -200,11 +255,29 @@ button:hover {
     border: 1px solid var(--soft-gold);
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .programma-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    .programma-time {
+        margin-bottom: 0.8rem;
+        text-align: center;
+        font-size: 1.6rem;
+    }
+    .programma-event {
+        text-align: center;
+    }
+    .hero h1 { font-size: 4rem; }
+    .couple-names { font-size: 3.2rem; }
+}
+
 /* Desktop */
 @media (min-width: 768px) {
     .hero h1 { font-size: 6rem; }
     .couple-names { font-size: 5rem; }
     .date { font-size: 2.8rem; }
     .welcome { font-size: 1.6rem; }
-    .timeline-item { padding: 2rem; }
 }
