@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Fixed parallax background (theater curtain) -->
+    <div class="background-image"></div>
+    <!-- Dark overlay + blur container (activated on scroll) -->
+    <div class="blur-overlay"></div>
+
     <nav class="nav">
         <ul class="nav-list">
             <li><a href="#hero">Home</a></li>
@@ -24,16 +29,16 @@
 
     <section id="hero" class="section hero">
         <div class="container hero-content">
-            <h1 class="metallic-red" data-text="Wij trouwen!" data-aos="fade-down" data-aos-delay="0">Wij trouwen!</h1>
-            <p class="couple-names metallic-red" data-text="Anna & Jan" data-aos="fade-down" data-aos-delay="300">Anna & Jan</p>
-            <p class="date metallic-red" data-text="15 augustus 2026" data-aos="fade-down" data-aos-delay="600">15 augustus 2026</p>
+            <h1 class="metallic-gold" data-text="Wij trouwen!" data-aos="fade-down" data-aos-delay="0">Wij trouwen!</h1>
+            <p class="couple-names metallic-gold" data-text="Anna & Jan" data-aos="fade-down" data-aos-delay="300">Anna & Jan</p>
+            <p class="date metallic-gold" data-text="15 augustus 2026" data-aos="fade-down" data-aos-delay="600">15 augustus 2026</p>
             <p class="welcome" data-aos="fade-down" data-aos-delay="900">Van harte uitgenodigd voor ons trouwfeest.<br>We kijken ernaar uit om deze dag met jullie te vieren.</p>
         </div>
     </section>
 
     <section id="details" class="section">
         <div class="container card" data-aos="fade-up">
-            <h2 data-aos="fade-up" data-aos-delay="0">Details</h2>
+            <h2 class="metallic-gold" data-text="Details" data-aos="fade-up" data-aos-delay="0">Details</h2>
             <p data-aos="fade-up" data-aos-delay="200">Ceremonie & feest<br>Kasteel de Haar, Utrecht</p>
             <p data-aos="fade-up" data-aos-delay="400">15 augustus 2026<br>Vanaf 14:00 uur</p>
         </div>
@@ -41,26 +46,26 @@
 
     <section id="programma" class="section">
         <div class="container">
-            <h2 class="metallic-red" data-text="Dagprogramma" data-aos="fade-up" data-aos-delay="0">Dagprogramma</h2>
+            <h2 class="metallic-gold" data-text="Dagprogramma" data-aos="fade-up" data-aos-delay="0">Dagprogramma</h2>
             <div class="programma-timeline">
                 <div class="programma-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="programma-time metallic-red" data-text="14:00">14:00</div>
+                    <div class="programma-time metallic-gold" data-text="14:00">14:00</div>
                     <div class="programma-event">Ceremonie</div>
                 </div>
                 <div class="programma-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="programma-time metallic-red" data-text="15:30">15:30</div>
+                    <div class="programma-time metallic-gold" data-text="15:30">15:30</div>
                     <div class="programma-event">Receptie & foto's</div>
                 </div>
                 <div class="programma-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="programma-time metallic-red" data-text="18:00">18:00</div>
+                    <div class="programma-time metallic-gold" data-text="18:00">18:00</div>
                     <div class="programma-event">Diner</div>
                 </div>
                 <div class="programma-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="programma-time metallic-red" data-text="20:00">20:00</div>
+                    <div class="programma-time metallic-gold" data-text="20:00">20:00</div>
                     <div class="programma-event">Feest met live muziek & dans</div>
                 </div>
                 <div class="programma-item" data-aos="fade-up" data-aos-delay="500">
-                    <div class="programma-time metallic-red" data-text="01:00">01:00</div>
+                    <div class="programma-time metallic-gold" data-text="01:00">01:00</div>
                     <div class="programma-event">Einde</div>
                 </div>
             </div>
@@ -69,14 +74,14 @@
 
     <section id="aftellen" class="section">
         <div class="container card" data-aos="fade-up">
-            <h2 data-aos="fade-up" data-aos-delay="0">Aftellen tot de grote dag</h2>
+            <h2 class="metallic-gold" data-text="Aftellen tot de grote dag" data-aos="fade-up" data-aos-delay="0">Aftellen tot de grote dag</h2>
             <div id="countdown" class="countdown" data-aos="fade-up" data-aos-delay="200"></div>
         </div>
     </section>
 
     <section id="rsvp" class="section">
         <div class="container card" data-aos="fade-up">
-            <h2 data-aos="fade-up" data-aos-delay="0">RSVP</h2>
+            <h2 class="metallic-gold" data-text="RSVP" data-aos="fade-up" data-aos-delay="0">RSVP</h2>
             <p data-aos="fade-up" data-aos-delay="200">Graag vóór 1 juli 2026 laten weten of je komt.</p>
             <form id="rsvp-form" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
                 <input type="text" name="naam" placeholder="Je naam" required data-aos="fade-up" data-aos-delay="300">
@@ -96,7 +101,7 @@
 
     <section id="locatie" class="section">
         <div class="container card" data-aos="fade-up">
-            <h2 data-aos="fade-up" data-aos-delay="0">Locatie</h2>
+            <h2 class="metallic-gold" data-text="Locatie" data-aos="fade-up" data-aos-delay="0">Locatie</h2>
             <p data-aos="fade-up" data-aos-delay="200">Kasteel de Haar<br>Haarzuilens, Utrecht</p>
             <div class="map-wrapper" data-aos="fade-up" data-aos-delay="400">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2457.699257228547!2d5.03272831572266!3d52.12000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c66f0d5e5e5e5d%3A0x5e5e5e5e5e5e5e5e!2sKasteel%20de%20Haar!5e0!3m2!1snl!2snl!4v1700000000000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -106,7 +111,7 @@
 
     <section id="afsluiting" class="section">
         <div class="container card" data-aos="fade-up">
-            <h2 data-aos="fade-up" data-aos-delay="0">We kunnen niet wachten!</h2>
+            <h2 class="metallic-gold" data-text="We kunnen niet wachten!" data-aos="fade-up" data-aos-delay="0">We kunnen niet wachten!</h2>
             <p data-aos="fade-up" data-aos-delay="200">Heb je vragen? Neem gerust contact op:<br>anna.jan@voorbeeld.com</p>
         </div>
     </section>
