@@ -33,16 +33,23 @@ document.getElementById('rsvp-form').addEventListener('submit', function(e) {
             particleCount: 150,
             spread: 70,
             origin: { y: 0.6 },
-            colors: ['#7C0A02', '#8B0000', '#E8D4B0']
+            colors: ['#D4AF37', '#C9A227', '#8B0000']
         });
     }, 500);
 });
 
-// Realistic metallic shine movement on scroll
-// Updates --shine-position CSS variable for smooth horizontal glint sweep based on scroll position
-// Subtle speed (0.05 multiplier) for elegant reflection effect
+// Background blur + overlay on scroll (sharp at top)
 window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY * 0.05;
-    const shinePos = 50 + (scrollPos % 100) - 50; // Loops smoothly between 0% and 100%
+    if (window.scrollY > 50) { // Small threshold for smooth activation
+        document.body.classList.add('scrolled');
+    } else {
+        document.body.classList.remove('scrolled');
+    }
+});
+
+// Metallic gold shine movement on scroll
+window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY * 0.08;
+    const shinePos = 50 + (scrollPos % 100) - 50;
     document.documentElement.style.setProperty('--shine-position', `${shinePos}%`);
 });
