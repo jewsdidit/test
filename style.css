@@ -1,12 +1,14 @@
 /* Mobile-first */
 /* Luxurious Gold/Red/Cream Theater Theme */
 :root {
-    --gold-primary: #D4AF37;     /* Main metallic gold accents */
-    --gold-dark: #C9A227;       /* Hover/shadow gold */
-    --deep-red: #8B0000;        /* Secondary red accents */
-    --cream-bg: #FDF5E6;        /* Main background */
-    --pearl-white: #FFF8E7;     /* Card backgrounds */
-    --soft-gold: #E8D4B0;       /* Subtle borders */
+    --gold-primary: #D4AF37;         /* Main gold accents */
+    --gold-light: #F0E68C;          /* Lighter glossy gold for nav and section titles */
+    --gold-dark: #C9A227;           /* Hover gold */
+    --deep-red: #8B0000;            /* Secondary red accents */
+    --cream-bg: #FDF5E6;            /* Main background */
+    --pearl-white: #FFF8E7;         /* Card backgrounds */
+    --soft-gold: #E8D4B0;           /* Subtle borders */
+    --shine-position: 50%;          /* Scroll-controlled shine */
 }
 
 * {
@@ -57,13 +59,17 @@ h2 {
     border: 1px solid var(--soft-gold);
 }
 
+/* Frosted glass navigation */
 .nav {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(253, 245, 230, 0.95);
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent cream */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    box-shadow: 0 2px 15px rgba(139, 0, 0, 0.1);
 }
 
 .nav-list {
@@ -74,16 +80,30 @@ h2 {
     padding: 1rem 0;
 }
 
-.nav-list li a {
+.nav-link {
     padding: 0.8rem 1.2rem;
     text-decoration: none;
-    color: var(--gold-primary);
+    color: var(--gold-light);
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s, text-shadow 0.3s;
+    position: relative;
 }
 
-.nav-list li a:hover {
-    color: var(--gold-dark);
+.nav-link:hover, .nav-link.active {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(240, 230, 140, 0.8);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: var(--gold-light);
+    box-shadow: 0 0 8px var(--gold-light);
 }
 
 .hero {
@@ -117,7 +137,8 @@ h2 {
     font-size: 1.3rem;
     max-width: 600px;
     margin: 0 auto;
-    color: var(--deep-red);
+    color: #FDF5E6;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
 /* Dagprogramma layout */
@@ -190,7 +211,7 @@ body.scrolled .blur-overlay {
     opacity: 1;
 }
 
-/* Realistic glossy metallic gold text with scroll-based moving shine */
+/* Primary metallic gold (for hero main text and timetable times) */
 .metallic-gold {
     position: relative;
     display: inline-block;
@@ -223,6 +244,18 @@ body.scrolled .blur-overlay {
     background-position: var(--shine-position, 50%) 50%;
     mix-blend-mode: overlay;
     pointer-events: none;
+}
+
+/* Lighter glossy gold for nav and section titles */
+.metallic-gold-light {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(145deg, #d4c060 0%, var(--gold-light) 40%, #ffffff 50%, var(--gold-light) 60%, #d4c060 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 0 6px rgba(255,255,255,0.3);
 }
 
 #countdown {
