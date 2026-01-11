@@ -6,6 +6,7 @@
     --cream-bg: #FDF5E6;         /* Main background */
     --pearl-white: #F5F0E8;     /* Card backgrounds */
     --soft-gold: #E8D4B0;       /* Borders, dividers, subtle highlights */
+    --shine-pos: 0%;            /* Scroll-controlled shine position */
 }
 
 * {
@@ -120,7 +121,7 @@ h2 {
     margin: 0 auto;
 }
 
-/* Dagprogramma - refined two-column timeline */
+/* Dagprogramma - refined layout */
 .programma-timeline {
     max-width: 600px;
     margin: 0 auto;
@@ -128,85 +129,65 @@ h2 {
 
 .programma-item {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     background: var(--pearl-white);
-    padding: 1.8rem 2rem;
-    margin: 1.2rem 0;
+    padding: 2rem;
+    margin: 1.5rem 0;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(124, 10, 2, 0.06);
-    border-left: 5px solid var(--deep-red);
+    border-left: 6px solid var(--deep-red);
     position: relative;
 }
 
 .programma-item::after {
     content: '';
     position: absolute;
-    bottom: -0.6rem;
-    left: 10%;
-    width: 80%;
+    bottom: -0.8rem;
+    left: 15%;
+    width: 70%;
     height: 1px;
-    background: linear-gradient(to right, transparent, var(--soft-gold), transparent);
+    background: var(--soft-gold);
+    opacity: 0.6;
 }
 
 .programma-time {
-    font-size: 1.8rem;
-    font-weight: 700;
-    min-width: 120px;
-    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .programma-event {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-family: 'Playfair Display', serif;
     color: #333;
-    text-align: right;
-    flex: 1;
 }
 
-/* Metallic shiny red text effect */
+/* Metallic glossy red text with scroll-based moving shine */
 .metallic-red {
     position: relative;
-    background: linear-gradient(90deg, 
-        #5a0000 0%, 
-        var(--deep-red) 20%, 
-        #a00000 40%, 
-        var(--deep-red) 60%, 
-        #5a0000 100%);
+    display: inline-block;
+    background: linear-gradient(to right, #5a0000, var(--deep-red), #a00000, var(--deep-red), #5a0000);
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5), 0 0 8px rgba(255,255,255,0.1); /* 3D bevel and subtle inner glow */
 }
 
-/* Dynamic shine highlight (moves on scroll) */
 .metallic-red::before {
     content: attr(data-text);
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, 
-        transparent 30%, 
-        rgba(255,255,255,0.4) 50%, 
-        transparent 70%);
+    background: linear-gradient(90deg, transparent 40%, rgba(255,255,255,0.6) 50%, transparent 60%);
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
+    -webkit-text-fill-color: transparent;
     background-size: 200% 100%;
-    animation: shine 8s linear infinite;
-    animation-play-state: paused;
-}
-
-body.scrolled .metallic-red::before {
-    animation-play-state: running;
-}
-
-@keyframes shine {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    background-position: var(--shine-pos, 0%) 50%;
+    mix-blend-mode: screen;
+    pointer-events: none;
 }
 
 #countdown {
@@ -255,27 +236,27 @@ button:hover {
     border: 1px solid var(--soft-gold);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Responsive - two-column on desktop */
+@media (min-width: 768px) {
     .programma-item {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.5rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 2.5rem 3rem;
     }
+
     .programma-time {
-        margin-bottom: 0.8rem;
-        text-align: center;
+        margin-bottom: 0;
+        margin-right: 3rem;
+        font-size: 2.2rem;
+    }
+
+    .programma-event {
+        text-align: right;
         font-size: 1.6rem;
     }
-    .programma-event {
-        text-align: center;
-    }
-    .hero h1 { font-size: 4rem; }
-    .couple-names { font-size: 3.2rem; }
-}
 
-/* Desktop */
-@media (min-width: 768px) {
     .hero h1 { font-size: 6rem; }
     .couple-names { font-size: 5rem; }
     .date { font-size: 2.8rem; }
