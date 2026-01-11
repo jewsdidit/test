@@ -6,7 +6,7 @@
     --cream-bg: #FDF5E6;         /* Main background */
     --pearl-white: #F5F0E8;     /* Card backgrounds */
     --soft-gold: #E8D4B0;       /* Borders, dividers, subtle highlights */
-    --shine-pos: 0%;            /* Scroll-controlled shine position */
+    --shine-position: 50%;      /* Controlled by JS for scroll-based shine */
 }
 
 * {
@@ -29,12 +29,10 @@ body {
 
 h1, .couple-names {
     font-family: 'Great Vibes', cursive;
-    color: var(--deep-red);
 }
 
 h2 {
     font-family: 'Playfair Display', serif;
-    color: var(--deep-red);
     margin-bottom: 2rem;
 }
 
@@ -162,17 +160,23 @@ h2 {
     color: #333;
 }
 
-/* Metallic glossy red text with scroll-based moving shine */
+/* Realistic glossy metallic red text with scroll-based moving shine */
+/* Base metallic gradient + bevel shadows for 3D depth */
 .metallic-red {
     position: relative;
     display: inline-block;
-    background: linear-gradient(to right, #5a0000, var(--deep-red), #a00000, var(--deep-red), #5a0000);
+    background: linear-gradient(145deg, #5a0000 0%, var(--deep-red) 30%, #a80000 50%, var(--deep-red) 70%, #5a0000 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5), 0 0 8px rgba(255,255,255,0.1); /* 3D bevel and subtle inner glow */
+    text-fill-color: transparent;
+    text-shadow: 
+        0 2px 4px rgba(0,0,0,0.6),
+        0 0 10px rgba(255,255,255,0.2),
+        0 4px 8px rgba(0,0,0,0.4); /* Bevel and inner glow for polished metal look */
 }
 
+/* Dynamic moving highlight/glint layer */
 .metallic-red::before {
     content: attr(data-text);
     position: absolute;
@@ -180,14 +184,19 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent 40%, rgba(255,255,255,0.6) 50%, transparent 60%);
+    background: linear-gradient(90deg, 
+        transparent 30%, 
+        rgba(255,255,255,0.5) 50%, 
+        transparent 70%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
     background-size: 200% 100%;
-    background-position: var(--shine-pos, 0%) 50%;
-    mix-blend-mode: screen;
+    background-position: var(--shine-position) 50%;
+    mix-blend-mode: overlay;
     pointer-events: none;
+    transition: background-position 0.1s ease; /* Smooth movement */
 }
 
 #countdown {
